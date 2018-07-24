@@ -28,7 +28,9 @@
     <%= form.text_area :page_count %>
   </p>
 
-
+<p> <%= collection_select(:book, :author_id, Author.all, :id, :full_name, prompt: true)
+ %>
+</p>
   <p>
     <%= form.submit %>
   </p>

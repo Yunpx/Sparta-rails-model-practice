@@ -14,13 +14,14 @@ class BooksController < ApplicationController
   end
 
   def create
-    @authors = Author.find(params[:author_id])
-    @book = @authors.books.create(book_params)
-    if @book.save
-       redirect_to authors_path(@author)
+
+   @book = Book.new(book_params)
+
+   if @book.save
+      redirect_to books_path
      else
        render 'new'
-    end
+     end
   end
 
   def edit
@@ -46,6 +47,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :description,:page_count)
+    params.require(:book).permit(:title, :description,:page_count, :author_id)
   end
 end

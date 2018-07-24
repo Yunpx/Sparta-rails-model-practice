@@ -10,13 +10,16 @@
 </p>
 <p>
   <strong>books</strong>
-  <% @author.books.each do |book| %>
-    <tr>
-      <td><%= book.title %></td>
-      <td><%= book.description %></td>
-      <td><%= book.page_count %></td>
-    </tr>
-  <% end %>
+  <table>
+    <% @author.books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.description %></td>
+        <td><%= book.page_count %></td>
+      </tr>
+    <% end %>
+  </table>
+
 </p>
 <%= link_to 'New book', new_author_book_path(@author.id) %>
 
