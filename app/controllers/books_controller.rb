@@ -10,15 +10,17 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+
   end
 
   def create
-   @book = Book.new(book_params)
-   if @book.save
-       redirect_to @book
+    @authors = Author.find(params[:author_id])
+    @book = @authors.books.create(book_params)
+    if @book.save
+       redirect_to authors_path(@author)
      else
        render 'new'
-     end
+    end
   end
 
   def edit
