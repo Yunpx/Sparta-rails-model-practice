@@ -1,0 +1,27 @@
+<h1><%= @author.id %></h1>
+<p>
+  <strong>First Name:</strong>
+  <%= @author.first_name %>
+</p>
+
+<p>
+  <strong>Second Name:</strong>
+  <%= @author.second_name %>
+</p>
+<p>
+  <strong>books</strong>
+  <table>
+    <% @author.books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.description %></td>
+        <td><%= book.page_count %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</p>
+<%= link_to 'New book', new_author_book_path(@author.id) %>
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Back', authors_path %>
